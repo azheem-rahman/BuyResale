@@ -9,27 +9,25 @@ const Search = () => {
   const handleTownClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
-    switch (event.target.id) {
-      case "ANG_MO_KIO":
-        someCtx.setTown("ANG MO KIO");
-        break;
-      case "PASIR_RIS":
-        someCtx.setTown("PASIR RIS");
-        break;
-      case "TOA_PAYOH":
-        someCtx.setTown("TOA PAYOH");
-        break;
-    }
+    // replace underscore to whitespace in button id and then setTown with it
+    someCtx.setTown(event.target.id.replaceAll("_", " "));
+    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
 
   const handleTypeClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
+    // replace underscore to whitespace in button id and then setTown with it
+    someCtx.setFlatType(event.target.id.replaceAll("_", " "));
+    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
 
   const handleModelClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
+    // replace underscore to whitespace in button id and then setTown with it
+    someCtx.setFlatModel(event.target.id.replaceAll("_", " "));
+    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
 
   return (
