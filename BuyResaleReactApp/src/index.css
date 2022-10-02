@@ -20,3 +20,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+li {
+  display: inline;
+  padding: 5px;
+}
