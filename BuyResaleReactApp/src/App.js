@@ -1,9 +1,10 @@
 import React from "react";
+import Homepage from "./components/Homepage";
 
 function App() {
   return (
     <div>
-      <h2>GA SEI-39</h2>
+      <Homepage />
     </div>
   );
 }
