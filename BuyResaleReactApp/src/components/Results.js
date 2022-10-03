@@ -1,6 +1,7 @@
 // Results component to display result
 import React, { useContext } from "react";
 import SomeContext from "../context/some-context";
+import Data from "./Data";
 import testData from "./testData";
 
 const Results = () => {
@@ -9,7 +10,8 @@ const Results = () => {
   return (
     <div>
       <h1>Results for {someCtx.town}</h1>
-      {testData.result.records.map((listItem, index) => {
+      {/* display using test data array */}
+      {/* {testData.result.records.map((listItem, index) => {
         return someCtx.town === listItem.town ? (
           <ul key={index}>
             <li>{listItem.street_name}</li>
@@ -24,7 +26,10 @@ const Results = () => {
         ) : (
           ""
         );
-      })}
+      })} */}
+
+      {/* to test what data is fetched
+      <div>{JSON.stringify(someCtx.post)}</div> */}
     </div>
   );
 };

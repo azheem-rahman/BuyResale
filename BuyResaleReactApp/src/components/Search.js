@@ -1,6 +1,7 @@
 // Search component to take in user's input & selection choices
 import React, { useContext } from "react";
 import SomeContext from "../context/some-context";
+import Data from "./Data";
 import Results from "./Results";
 
 const Search = () => {
