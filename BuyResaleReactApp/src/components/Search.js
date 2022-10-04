@@ -1,5 +1,5 @@
 // Search component to take in user's input & selection choices
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
 import Data from "./Data";
 import Results from "./Results";
@@ -12,7 +12,6 @@ const Search = () => {
     console.log(event.target.id);
     // replace underscore to whitespace in button id and then setTown with it
     someCtx.setTown(event.target.id.replaceAll("_", " "));
-    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
 
   const handleTypeClick = (event) => {
@@ -20,7 +19,6 @@ const Search = () => {
     console.log(event.target.id);
     // replace underscore to whitespace in button id and then setTown with it
     someCtx.setFlatType(event.target.id.replaceAll("_", " "));
-    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
 
   const handleModelClick = (event) => {
@@ -28,8 +26,21 @@ const Search = () => {
     console.log(event.target.id);
     // replace underscore to whitespace in button id and then setTown with it
     someCtx.setFlatModel(event.target.id.replaceAll("_", " "));
-    someCtx.setNumOfCriteriaSelected(someCtx.numOfCriteriaSelected + 1);
   };
+
+  useEffect(() => {
+    if (someCtx.town && someCtx.flatType && someCtx.flatModel) {
+      someCtx.setSearchCriteria(
+        `${someCtx.town},${someCtx.flatType},${someCtx.flatModel}`
+      );
+    }
+  });
+
+  //   if (someCtx.town && someCtx.flatType && someCtx.flatModel) {
+  //     someCtx.setSearchCriteria(
+  //       `${someCtx.town} + ${someCtx.flatType} + ${someCtx.flatModel}`
+  //     );
+  //   }
 
   return (
     <div>
