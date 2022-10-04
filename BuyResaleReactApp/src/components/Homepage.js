@@ -9,9 +9,10 @@ const Homepage = () => {
   const [town, setTown] = useState("");
   const [flatType, setFlatType] = useState("");
   const [flatModel, setFlatModel] = useState("");
-  const [numOfCriteriaSelected, setNumOfCriteriaSelected] = useState(0);
 
-  const [searchCriteria, setSearchCriteria] = useState("");
+  //   const [numOfCriteriaSelected, setNumOfCriteriaSelected] = useState(0);
+
+  const [searchCriteria, setSearchCriteria] = useState(null);
 
   const [post, setPost] = useState([]);
 
@@ -28,8 +29,6 @@ const Homepage = () => {
         setFlatType,
         flatModel,
         setFlatModel,
-        numOfCriteriaSelected,
-        setNumOfCriteriaSelected,
         searchCriteria,
         setSearchCriteria,
         post,
@@ -37,7 +36,6 @@ const Homepage = () => {
       }}
     >
       <div>
-        <Data />
         <Search />
       </div>
     </SomeContext.Provider>
