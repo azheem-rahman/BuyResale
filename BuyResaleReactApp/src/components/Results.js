@@ -9,7 +9,7 @@ const Results = () => {
 
   return (
     <div>
-      <h1>Results for {someCtx.town}</h1>
+      <h1>Results for {someCtx.searchCriteria}</h1>
       {/* display using test data array */}
       {/* {testData.result.records.map((listItem, index) => {
         return someCtx.town === listItem.town ? (
@@ -30,6 +30,52 @@ const Results = () => {
 
       {/* to test what data is fetched
       <div>{JSON.stringify(someCtx.post)}</div> */}
+      <Data />
+
+      {/* to print ALL data retrieved from HDB API call*/}
+      {/* <div>
+        {someCtx.post.map((item, index) => {
+          return (
+            <ul key={index}>
+              <li>{item.street_name}</li>
+              <li>{item.block}</li>
+              <li>{item.storey_range}</li>
+              <li>{item.flat_type}</li>
+              <li>{item.flat_model}</li>
+              <li>{item.floor_area_sqm}</li>
+              <li>{item.resale_price}</li>
+              <li>{item.remaining_lease}</li>
+            </ul>
+          );
+        })}
+      </div> */}
+
+      {/* to print user's selected data */}
+      {someCtx.post.map((item, index) => {
+        if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
+          if (
+            JSON.stringify(someCtx.flatType) === JSON.stringify(item.flat_type)
+          ) {
+            if (
+              JSON.stringify(someCtx.flatModel) ===
+              JSON.stringify(item.flat_model)
+            ) {
+              return (
+                <ul key={index}>
+                  <li>{item.street_name}</li>
+                  <li>{item.block}</li>
+                  <li>{item.storey_range}</li>
+                  <li>{item.flat_type}</li>
+                  <li>{item.flat_model}</li>
+                  <li>{item.floor_area_sqm}</li>
+                  <li>{item.resale_price}</li>
+                  <li>{item.remaining_lease}</li>
+                </ul>
+              );
+            }
+          }
+        }
+      })}
     </div>
   );
 };
