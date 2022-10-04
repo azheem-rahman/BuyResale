@@ -49,33 +49,46 @@ const Results = () => {
           );
         })}
       </div> */}
+      <table>
+        <tr>
+          <th>Street Name</th>
+          <th>Block</th>
+          <th>Storey Range</th>
+          <th>Flat Type</th>
+          <th>Flat Model</th>
+          <th>Floor Area sqm</th>
+          <th>Resale Price</th>
+          <th>Remaining Lease</th>
+        </tr>
 
-      {/* to print user's selected data */}
-      {someCtx.post.map((item, index) => {
-        if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
-          if (
-            JSON.stringify(someCtx.flatType) === JSON.stringify(item.flat_type)
-          ) {
+        {/* to print user's selected data */}
+        {someCtx.post.map((item, index) => {
+          if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
             if (
-              JSON.stringify(someCtx.flatModel) ===
-              JSON.stringify(item.flat_model)
+              JSON.stringify(someCtx.flatType) ===
+              JSON.stringify(item.flat_type)
             ) {
-              return (
-                <ul key={index}>
-                  <li>{item.street_name}</li>
-                  <li>{item.block}</li>
-                  <li>{item.storey_range}</li>
-                  <li>{item.flat_type}</li>
-                  <li>{item.flat_model}</li>
-                  <li>{item.floor_area_sqm}</li>
-                  <li>{item.resale_price}</li>
-                  <li>{item.remaining_lease}</li>
-                </ul>
-              );
+              if (
+                JSON.stringify(someCtx.flatModel) ===
+                JSON.stringify(item.flat_model)
+              ) {
+                return (
+                  <tr key={index}>
+                    <td>{item.street_name}</td>
+                    <td>{item.block}</td>
+                    <td>{item.storey_range}</td>
+                    <td>{item.flat_type}</td>
+                    <td>{item.flat_model}</td>
+                    <td>{item.floor_area_sqm}</td>
+                    <td>{item.resale_price}</td>
+                    <td>{item.remaining_lease}</td>
+                  </tr>
+                );
+              }
             }
           }
-        }
-      })}
+        })}
+      </table>
     </div>
   );
 };
