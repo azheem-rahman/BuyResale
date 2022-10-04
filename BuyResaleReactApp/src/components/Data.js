@@ -35,6 +35,7 @@ const Data = () => {
         return someCtx.setPost((prevState) => [
           ...prevState,
           {
+            town: item.town,
             street_name: item.street_name,
             block: item.block,
             storey_range: item.storey_range,
@@ -54,17 +55,33 @@ const Data = () => {
   };
 
   // pull ALL data from HDB
+  // useEffect(() => {
+  //   for (let i = 1; i <= fetchCount; i++) {
+  //     if (i === 1) {
+  //       const initialUrl =
+  //         "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3";
+  //       fetchPost(initialUrl);
+  //     } else {
+  //       const url = "https://data.gov.sg/" + data.result._links.next;
+  //       fetchPost(url);
+  //     }
+  //   }
+  // }, []);
+
+  // pull data limited to 4000 entries from HDB
   useEffect(() => {
     const url =
-      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&q=" +
-      selection;
+      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=4000";
     fetchPost(url);
-  }, [selection]);
+  }, []);
 
   return (
     <div>
       {/* to test if data fetch works correctly
       <div>{isLoading ? "ERROR!" : JSON.stringify(someCtx.post)}</div> */}
+
+      {/* to display loading of fetching data from HDB  */}
+      <div>{isLoading ? "Loading..." : "Fetch data completed"}</div>
     </div>
   );
 };
