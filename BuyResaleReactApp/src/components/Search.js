@@ -9,41 +9,41 @@ const Search = () => {
 
   // array of all towns in SG, total 26 towns
   const townOptions = [
-    "Ang Mo Kio",
+    "Ang_Mo_Kio",
     "Bedok",
     "Bishan",
-    "Bukit Batok",
-    "Bukit Merah",
-    "Bukit Panjang",
-    "Bukit Timah",
-    "Central Area",
-    "Choa Chu Kang",
+    "Bukit_Batok",
+    "Bukit_Merah",
+    "Bukit_Panjang",
+    "Bukit_Timah",
+    "Central_Area",
+    "Choa_Chu_Kang",
     "Clementi",
     "Geylang",
     "Hougang",
-    "Jurong East",
-    "Jurong West",
-    "Kallang/Whampoa",
-    "Marine Parade",
-    "Pasir Ris",
+    "Jurong_East",
+    "Jurong_West",
+    "Kallang_Whampoa",
+    "Marine_Parade",
+    "Pasir_Ris",
     "Punggol",
     "Queenstown",
     "Sembawang",
     "Sengkang",
     "Serangoon",
     "Tampines",
-    "Toa Payoh",
+    "Toa_Payoh",
     "Woodlands",
     "Yishun",
   ];
 
   // array of all flat types in SG, total 7 flat types
   const flatTypeOptions = [
-    "1 Room",
-    "2 Room",
-    "3 Room",
-    "4 Room",
-    "5 Room",
+    "1_Room",
+    "2_Room",
+    "3_Room",
+    "4_Room",
+    "5_Room",
     "Executive",
     "Multi-Generation",
   ];
@@ -51,160 +51,160 @@ const Search = () => {
   // array of all flat model under each flat types
   const flatModelOptions = [
     {
-      flatType: "1 Room",
+      flatType: "1_Room",
       flatModel: "Improved",
     },
     {
-      flatType: "2 Room",
-      flatModel: "2 Room",
+      flatType: "2_Room",
+      flatModel: "2_Room",
     },
     {
-      flatType: "2 Room",
+      flatType: "2_Room",
       flatModel: "DBSS",
     },
     {
-      flatType: "2 Room",
+      flatType: "2_Room",
       flatModel: "Improved",
     },
     {
-      flatType: "2 Room",
-      flatModel: "Model A",
+      flatType: "2_Room",
+      flatModel: "Model_A",
     },
     {
-      flatType: "2 Room",
-      flatModel: "Premium Apartment",
+      flatType: "2_Room",
+      flatModel: "Premium_Apartment",
     },
     {
-      flatType: "2 Room",
+      flatType: "2_Room",
       flatModel: "Standard",
     },
     {
-      flatType: "3 Room",
+      flatType: "3_Room",
       flatModel: "DBSS",
     },
     {
-      flatType: "3 Room",
+      flatType: "3_Room",
       flatModel: "Improved",
     },
     {
-      flatType: "3 Room",
-      flatModel: "Model A",
+      flatType: "3_Room",
+      flatModel: "Model_A",
     },
     {
-      flatType: "3 Room",
-      flatModel: "New Generation",
+      flatType: "3_Room",
+      flatModel: "New_Generation",
     },
     {
-      flatType: "3 Room",
-      flatModel: "Premium Apartment",
+      flatType: "3_Room",
+      flatModel: "Premium_Apartment",
     },
     {
-      flatType: "3 Room",
+      flatType: "3_Room",
       flatModel: "Simplified",
     },
     {
-      flatType: "3 Room",
+      flatType: "3_Room",
       flatModel: "Standard",
     },
     {
-      flatType: "3 Room",
+      flatType: "3_Room",
       flatModel: "Terrace",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Adjoined Flat",
+      flatType: "4_Room",
+      flatModel: "Adjoined_Flat",
     },
     {
-      flatType: "4 Room",
+      flatType: "4_Room",
       flatModel: "DBSS",
     },
     {
-      flatType: "4 Room",
+      flatType: "4_Room",
       flatModel: "Improved",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Model A",
+      flatType: "4_Room",
+      flatModel: "Model_A",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Model A2",
+      flatType: "4_Room",
+      flatModel: "Model_A2",
     },
     {
-      flatType: "4 Room",
-      flatModel: "New Generation",
+      flatType: "4_Room",
+      flatModel: "New_Generation",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Premium Apartment",
+      flatType: "4_Room",
+      flatModel: "Premium_Apartment",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Premium Apartment Loft",
+      flatType: "4_Room",
+      flatModel: "Premium_Apartment_Loft",
     },
     {
-      flatType: "4 Room",
+      flatType: "4_Room",
       flatModel: "Simplified",
     },
     {
-      flatType: "4 Room",
+      flatType: "4_Room",
       flatModel: "Standard",
     },
     {
-      flatType: "4 Room",
+      flatType: "4_Room",
       flatModel: "Terrace",
     },
     {
-      flatType: "4 Room",
-      flatModel: "Type S1",
+      flatType: "4_Room",
+      flatModel: "Type_S1",
     },
     {
-      flatType: "5 Room",
+      flatType: "5_Room",
       flatModel: "3Gen",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Adjoined Flat",
+      flatType: "5_Room",
+      flatModel: "Adjoined_Flat",
     },
     {
-      flatType: "5 Room",
+      flatType: "5_Room",
       flatModel: "DBSS",
     },
     {
-      flatType: "5 Room",
+      flatType: "5_Room",
       flatModel: "Improved",
     },
     {
-      flatType: "5 Room",
+      flatType: "5_Room",
       flatModel: "Improved-Maisonette",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Model A",
+      flatType: "5_Room",
+      flatModel: "Model_A",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Model A-Maisonette",
+      flatType: "5_Room",
+      flatModel: "Model_A-Maisonette",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Premium Apartment",
+      flatType: "5_Room",
+      flatModel: "Premium_Apartment",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Premium Apartment Loft",
+      flatType: "5_Room",
+      flatModel: "Premium_Apartment_Loft",
     },
     {
-      flatType: "5 Room",
+      flatType: "5_Room",
       flatModel: "Standard",
     },
     {
-      flatType: "5 Room",
-      flatModel: "Type S2",
+      flatType: "5_Room",
+      flatModel: "Type_S2",
     },
     {
       flatType: "Executive",
-      flatModel: "Adjoined Flat",
+      flatModel: "Adjoined_Flat",
     },
     {
       flatType: "Executive",
@@ -216,30 +216,32 @@ const Search = () => {
     },
     {
       flatType: "Executive",
-      flatModel: "Premium Apartment",
+      flatModel: "Premium_Apartment",
     },
     {
       flatType: "Executive",
-      flatModel: "Premium Maisonette",
+      flatModel: "Premium_Maisonette",
     },
     {
       flatType: "Multi-Generation",
-      flatModel: "Multi Generation",
+      flatModel: "Multi_Generation",
     },
   ];
 
   const handleTownClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
+    const townSelected = event.target.id.replaceAll("_", " ");
     // replace underscore to whitespace in button id and then setTown with it
-    someCtx.setTown(event.target.id.replaceAll("_", " "));
+    someCtx.setTown(townSelected.toUpperCase());
   };
 
   const handleFlatTypeClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
+    const flatTypeSelected = event.target.id.replaceAll("_", " ");
     // replace underscore to whitespace in button id and then setTown with it
-    someCtx.setFlatType(event.target.id.replaceAll("_", " "));
+    someCtx.setFlatType(flatTypeSelected.toUpperCase());
   };
 
   const handleFlatModelClick = (event) => {
@@ -252,7 +254,7 @@ const Search = () => {
   useEffect(() => {
     if (someCtx.town && someCtx.flatType && someCtx.flatModel) {
       someCtx.setSearchCriteria(
-        `${someCtx.town},${someCtx.flatType},${someCtx.flatModel}`
+        `${someCtx.town}, ${someCtx.flatType}, ${someCtx.flatModel}`
       );
     }
   });
@@ -264,10 +266,17 @@ const Search = () => {
   //   }
 
   const displayFlatModelOptions = () => {
-    flatModelOptions.map((flatModelItem) => {
-      if (someCtx.flatType === flatModelOptions.flatType) {
+    flatModelOptions.map((flatModelItem, index) => {
+      if (
+        JSON.stringify(someCtx.flatType) ===
+        JSON.stringify(flatModelItem.flatType)
+      ) {
         return (
-          <button onClick={handleFlatModelClick} id={flatModelItem.flatModel}>
+          <button
+            onClick={handleFlatModelClick}
+            id={flatModelItem.flatModel}
+            key={index}
+          >
             {flatModelItem.flatModel}
           </button>
         );
@@ -291,9 +300,9 @@ const Search = () => {
         Toa Payoh
       </button> */}
 
-      {townOptions.map((townItem) => {
+      {townOptions.map((townItem, index) => {
         return (
-          <button onClick={handleTownClick} id={townItem}>
+          <button onClick={handleTownClick} id={townItem} key={index}>
             {townItem}
           </button>
         );
@@ -307,14 +316,14 @@ const Search = () => {
         3 ROOM
       </button>
       <button onClick={handleFlatTypeClick} id="4_ROOM">
-        4 ROOM
+        4_Room
       </button>
       <button onClick={handleFlatTypeClick} id="5_ROOM">
-        5 ROOM
+        5_Room
       </button> */}
-      {flatTypeOptions.map((flatTypeItem) => {
+      {flatTypeOptions.map((flatTypeItem, index) => {
         return (
-          <button onClick={handleFlatTypeClick} id={flatTypeItem}>
+          <button onClick={handleFlatTypeClick} id={flatTypeItem} key={index}>
             {flatTypeItem}
           </button>
         );
@@ -330,10 +339,16 @@ const Search = () => {
       <button onClick={handleFlatModelClick} id="Premium_Apartment">
         Premium Apartment
       </button> */}
-      {/* {someCtx.flatType ? { displayFlatModelOptions() } : ""} */}
-      {flatModelOptions.map((flatModelItem) => {
+
+      {/* {someCtx.flatType ? { displayFlatModelOptions } : ""} */}
+
+      {flatModelOptions.map((flatModelItem, index) => {
         return (
-          <button onClick={handleFlatModelClick} id={flatModelItem.flatModel}>
+          <button
+            onClick={handleFlatModelClick}
+            id={flatModelItem.flatModel}
+            key={index}
+          >
             {flatModelItem.flatModel}
           </button>
         );
