@@ -69,11 +69,19 @@ const Data = () => {
   // }, []);
 
   // pull data limited to 4000 entries from HDB
+  // useEffect(() => {
+  //   const url =
+  //     "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=999999";
+  //   fetchPost(url);
+  // }, []);
+
+  // pull data after HDB related to town selected, limited to 5000 entries
   useEffect(() => {
     const url =
-      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=4000";
+      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=3000&q=" +
+      someCtx.town;
     fetchPost(url);
-  }, []);
+  }, [someCtx.town]);
 
   return (
     <div>
