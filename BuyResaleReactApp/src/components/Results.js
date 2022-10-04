@@ -31,6 +31,7 @@ const Results = () => {
       {/* to test what data is fetched
       <div>{JSON.stringify(someCtx.post)}</div> */}
       <Data />
+      <br />
 
       {/* to print ALL data retrieved from HDB API call*/}
       {/* <div>
@@ -50,44 +51,48 @@ const Results = () => {
         })}
       </div> */}
       <table>
-        <tr>
-          <th>Street Name</th>
-          <th>Block</th>
-          <th>Storey Range</th>
-          <th>Flat Type</th>
-          <th>Flat Model</th>
-          <th>Floor Area sqm</th>
-          <th>Resale Price</th>
-          <th>Remaining Lease</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Street Name</th>
+            <th>Block</th>
+            <th>Storey Range</th>
+            <th>Flat Type</th>
+            <th>Flat Model</th>
+            <th>Floor Area sqm</th>
+            <th>Resale Price</th>
+            <th>Remaining Lease</th>
+          </tr>
+        </thead>
 
         {/* to print user's selected data */}
-        {someCtx.post.map((item, index) => {
-          if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
-            if (
-              JSON.stringify(someCtx.flatType) ===
-              JSON.stringify(item.flat_type)
-            ) {
+        <tbody>
+          {someCtx.post.map((item, index) => {
+            if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
               if (
-                JSON.stringify(someCtx.flatModel) ===
-                JSON.stringify(item.flat_model)
+                JSON.stringify(someCtx.flatType) ===
+                JSON.stringify(item.flat_type)
               ) {
-                return (
-                  <tr key={index}>
-                    <td>{item.street_name}</td>
-                    <td>{item.block}</td>
-                    <td>{item.storey_range}</td>
-                    <td>{item.flat_type}</td>
-                    <td>{item.flat_model}</td>
-                    <td>{item.floor_area_sqm}</td>
-                    <td>{item.resale_price}</td>
-                    <td>{item.remaining_lease}</td>
-                  </tr>
-                );
+                if (
+                  JSON.stringify(someCtx.flatModel) ===
+                  JSON.stringify(item.flat_model)
+                ) {
+                  return (
+                    <tr key={index}>
+                      <td>{item.street_name}</td>
+                      <td>{item.block}</td>
+                      <td>{item.storey_range}</td>
+                      <td>{item.flat_type}</td>
+                      <td>{item.flat_model}</td>
+                      <td>{item.floor_area_sqm}</td>
+                      <td>{item.resale_price}</td>
+                      <td>{item.remaining_lease}</td>
+                    </tr>
+                  );
+                }
               }
             }
-          }
-        })}
+          })}
+        </tbody>
       </table>
     </div>
   );
