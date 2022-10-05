@@ -1,7 +1,6 @@
 // Search component to take in user's input & selection choices
 import React, { useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
-import Data from "./Data";
 import Results from "./Results";
 
 const Search = () => {
@@ -259,12 +258,6 @@ const Search = () => {
     }
   });
 
-  //   if (someCtx.town && someCtx.flatType && someCtx.flatModel) {
-  //     someCtx.setSearchCriteria(
-  //       `${someCtx.town} + ${someCtx.flatType} + ${someCtx.flatModel}`
-  //     );
-  //   }
-
   const displayFlatModelOptions = () => {
     flatModelOptions.map((flatModelItem, index) => {
       if (
@@ -287,18 +280,6 @@ const Search = () => {
   return (
     <div>
       <h1>Select Town</h1>
-      {/* <button onClick={handleTownClick} id="ANG_MO_KIO">
-        Ang Mo Kio
-      </button>
-      <button onClick={handleTownClick} id="TAMPINES">
-        Tampines
-      </button>
-      <button onClick={handleTownClick} id="PASIR_RIS">
-        Pasir Ris
-      </button>
-      <button onClick={handleTownClick} id="TOA_PAYOH">
-        Toa Payoh
-      </button> */}
 
       {townOptions.map((townItem, index) => {
         return (
@@ -309,18 +290,7 @@ const Search = () => {
       })}
 
       <h1>Select Flat Type</h1>
-      {/* <button onClick={handleFlatTypeClick} id="2_ROOM">
-        2 ROOM
-      </button>
-      <button onClick={handleFlatTypeClick} id="3_ROOM">
-        3 ROOM
-      </button>
-      <button onClick={handleFlatTypeClick} id="4_ROOM">
-        4_Room
-      </button>
-      <button onClick={handleFlatTypeClick} id="5_ROOM">
-        5_Room
-      </button> */}
+
       {flatTypeOptions.map((flatTypeItem, index) => {
         return (
           <button onClick={handleFlatTypeClick} id={flatTypeItem} key={index}>
@@ -330,17 +300,6 @@ const Search = () => {
       })}
 
       <h1>Select Flat Model</h1>
-      {/* <button onClick={handleFlatModelClick} id="Improved">
-        Improved
-      </button>
-      <button onClick={handleFlatModelClick} id="Model_A">
-        Model A
-      </button>
-      <button onClick={handleFlatModelClick} id="Premium_Apartment">
-        Premium Apartment
-      </button> */}
-
-      {/* {someCtx.flatType ? { displayFlatModelOptions } : ""} */}
 
       {flatModelOptions.map((flatModelItem, index) => {
         return (
