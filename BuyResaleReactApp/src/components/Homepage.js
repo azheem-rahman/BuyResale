@@ -1,44 +1,21 @@
 // Homepage Component to choose between showing Search options or Results
 import React, { useState } from "react";
-import Search from "./Search";
-import Results from "./Results";
-import SomeContext from "../context/some-context";
-import Data from "./Data";
+import { NavLink } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import styles from "./NavBar.module.css";
 
 const Homepage = () => {
-  const [town, setTown] = useState("");
-  const [flatType, setFlatType] = useState("");
-  const [flatModel, setFlatModel] = useState("");
-
-  //   const [numOfCriteriaSelected, setNumOfCriteriaSelected] = useState(0);
-
-  const [searchCriteria, setSearchCriteria] = useState(null);
-
-  const [post, setPost] = useState([]);
-
-  // for comparison feature
-  //   const [compareFirst, setCompareFirst] = useState("");
-  //   const [compareSecond, setCompareSecond] = useState("");
-
   return (
-    <SomeContext.Provider
-      value={{
-        town,
-        setTown,
-        flatType,
-        setFlatType,
-        flatModel,
-        setFlatModel,
-        searchCriteria,
-        setSearchCriteria,
-        post,
-        setPost,
-      }}
-    >
-      <div>
-        <Search />
-      </div>
-    </SomeContext.Provider>
+    <div className="homepage-header">
+      <h1>BuyResale</h1>
+      <p>
+        See past transaction records for resale HDB flats within the past 2
+        years
+      </p>
+      <NavLink className="btn btn-primary" to="/Search">
+        Start Search
+      </NavLink>
+    </div>
   );
 };
 
