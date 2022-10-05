@@ -5,7 +5,7 @@ const Resources = () => {
     <div>
       <br />
       <div className="resources-header">
-        <h1>Resources</h1>
+        <h1 className="centered">Resources</h1>
       </div>
       <div className="container">
         <div className="row">
