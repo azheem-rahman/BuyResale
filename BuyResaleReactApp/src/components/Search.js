@@ -6,6 +6,10 @@ import Results from "./Results";
 const Search = () => {
   const someCtx = useContext(SomeContext);
 
+  //================================================//
+  //=============== Reference Arrays ===============//
+  //================================================//
+
   // array of all towns in SG, total 26 towns
   const townOptions = [
     "Ang_Mo_Kio",
@@ -47,185 +51,69 @@ const Search = () => {
     "Multi-Generation",
   ];
 
-  // array of all flat model under each flat types
-  const flatModelOptions = [
-    {
-      flatType: "1_Room",
-      flatModel: "Improved",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "2_Room",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "DBSS",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "Improved",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "Model_A",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "Premium_Apartment",
-    },
-    {
-      flatType: "2_Room",
-      flatModel: "Standard",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "DBSS",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Improved",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Model_A",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "New_Generation",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Premium_Apartment",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Simplified",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Standard",
-    },
-    {
-      flatType: "3_Room",
-      flatModel: "Terrace",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Adjoined_Flat",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "DBSS",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Improved",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Model_A",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Model_A2",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "New_Generation",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Premium_Apartment",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Premium_Apartment_Loft",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Simplified",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Standard",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Terrace",
-    },
-    {
-      flatType: "4_Room",
-      flatModel: "Type_S1",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "3Gen",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Adjoined_Flat",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "DBSS",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Improved",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Improved-Maisonette",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Model_A",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Model_A-Maisonette",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Premium_Apartment",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Premium_Apartment_Loft",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Standard",
-    },
-    {
-      flatType: "5_Room",
-      flatModel: "Type_S2",
-    },
-    {
-      flatType: "Executive",
-      flatModel: "Adjoined_Flat",
-    },
-    {
-      flatType: "Executive",
-      flatModel: "Apartment",
-    },
-    {
-      flatType: "Executive",
-      flatModel: "Maisonette",
-    },
-    {
-      flatType: "Executive",
-      flatModel: "Premium_Apartment",
-    },
-    {
-      flatType: "Executive",
-      flatModel: "Premium_Maisonette",
-    },
-    {
-      flatType: "Multi-Generation",
-      flatModel: "Multi_Generation",
-    },
+  // array of all flat model under each flat types, total 7 arrays
+  const flatModelOptionsOneRoom = ["Improved"];
+
+  const flatModelOptionsTwoRoom = [
+    "2_Room",
+    "DBSS",
+    "Improved",
+    "Model_A",
+    "Premium_Apartment",
+    "Standard",
   ];
+
+  const flatModelOptionsThreeRoom = [
+    "DBSS",
+    "Improved",
+    "Model_A",
+    "New_Generation",
+    "Premium_Apartment",
+    "Simplified",
+    "Standard",
+    "Terrace",
+  ];
+
+  const flatModelOptionsFourRoom = [
+    "Adjoined_Flat",
+    "DBSS",
+    "Improved",
+    "Model_A",
+    "Model_A2",
+    "New_Generation",
+    "Premium_Apartment",
+    "Premium_Apartment_Loft",
+    "Simplified",
+    "Standard",
+    "Terrace",
+  ];
+
+  const flatModelOptionsFiveRoom = [
+    "3Gen",
+    "Adjoined_Flat",
+    "DBSS",
+    "Improved",
+    "Improved-Maisonette",
+    "Model_A",
+    "Model_A-Maisonette",
+    "Premium_Apartment",
+    "Premium_Apartment_Loft",
+    "Standard",
+  ];
+
+  const flatModelOptionsExecutive = [
+    "Adjoined_Flat",
+    "Apartment",
+    "Maisonette",
+    "Premium_Apartment",
+    "Premium_Maisonette",
+  ];
+
+  const flatModelOptionsMultiGeneration = ["Multi_Generation"];
+
+  //=========================================//
+  //=============== Functions ===============//
+  //=========================================//
 
   const handleTownClick = (event) => {
     event.preventDefault();
@@ -259,59 +147,88 @@ const Search = () => {
   });
 
   const displayFlatModelOptions = () => {
-    flatModelOptions.map((flatModelItem, index) => {
-      if (
-        JSON.stringify(someCtx.flatType) ===
-        JSON.stringify(flatModelItem.flatType)
-      ) {
-        return (
-          <button
-            onClick={handleFlatModelClick}
-            id={flatModelItem.flatModel}
-            key={index}
-          >
-            {flatModelItem.flatModel}
-          </button>
-        );
-      }
-    });
+    switch (someCtx.flatType) {
+      case "1 ROOM":
+        return flatModelOptionsOneRoom.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "2 ROOM":
+        return flatModelOptionsTwoRoom.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "3 ROOM":
+        return flatModelOptionsThreeRoom.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "4 ROOM":
+        return flatModelOptionsFourRoom.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "5 ROOM":
+        return flatModelOptionsFiveRoom.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "EXECUTIVE":
+        return flatModelOptionsExecutive.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+      case "MULTI-GENERATION":
+        return flatModelOptionsMultiGeneration.map((item, index) => {
+          return (
+            <button onClick={handleFlatModelClick} id={item} key={index}>
+              {item.replaceAll("_", " ")}
+            </button>
+          );
+        });
+    }
   };
 
   return (
     <div>
       <h1>Select Town</h1>
-
       {townOptions.map((townItem, index) => {
         return (
           <button onClick={handleTownClick} id={townItem} key={index}>
-            {townItem}
+            {townItem.replaceAll("_", " ")}
           </button>
         );
       })}
 
       <h1>Select Flat Type</h1>
-
       {flatTypeOptions.map((flatTypeItem, index) => {
         return (
           <button onClick={handleFlatTypeClick} id={flatTypeItem} key={index}>
-            {flatTypeItem}
+            {flatTypeItem.replaceAll("_", " ")}
           </button>
         );
       })}
 
       <h1>Select Flat Model</h1>
-
-      {flatModelOptions.map((flatModelItem, index) => {
-        return (
-          <button
-            onClick={handleFlatModelClick}
-            id={flatModelItem.flatModel}
-            key={index}
-          >
-            {flatModelItem.flatModel}
-          </button>
-        );
-      })}
+      {someCtx.flatType ? <div>{displayFlatModelOptions()}</div> : ""}
 
       <Results />
     </div>
