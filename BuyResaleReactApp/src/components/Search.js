@@ -2,6 +2,9 @@
 import React, { useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
 import Results from "./Results";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Search = () => {
   const someCtx = useContext(SomeContext);
@@ -10,35 +13,38 @@ const Search = () => {
   //=============== Reference Arrays ===============//
   //================================================//
 
-  // array of all towns in SG, total 26 towns
+  // array of all towns in SG, total 26 towns (tengah excluded)
+  // towns arranged in regions: North > North-East > East > West > Central
   const townOptions = [
-    "Ang_Mo_Kio",
-    "Bedok",
-    "Bishan",
-    "Bukit_Batok",
-    "Bukit_Merah",
-    "Bukit_Panjang",
-    "Bukit_Timah",
-    "Central_Area",
-    "Choa_Chu_Kang",
-    "Clementi",
-    "Geylang",
-    "Hougang",
-    "Jurong_East",
-    "Jurong_West",
-    "Kallang_Whampoa",
-    "Marine_Parade",
-    "Pasir_Ris",
-    "Punggol",
-    "Queenstown",
     "Sembawang",
-    "Sengkang",
-    "Serangoon",
-    "Tampines",
-    "Toa_Payoh",
     "Woodlands",
     "Yishun",
+    "Ang_Mo_Kio",
+    "Hougang",
+    "Punggol",
+    "Sengkang",
+    "Serangoon",
+    "Bedok",
+    "Pasir_Ris",
+    "Tampines",
+    "Bukit_Batok",
+    "Bukit_Panjang",
+    "Choa_Chu_Kang",
+    "Clementi",
+    "Jurong_East",
+    "Jurong_West",
+    "Bishan",
+    "Bukit_Merah",
+    "Bukit_Timah",
+    "Central_Area",
+    "Geylang",
+    "Kallang_Whampoa",
+    "Marine_Parade",
+    "Queenstown",
+    "Toa_Payoh",
   ];
+
+  const townOptionsImages = [];
 
   // array of all flat types in SG, total 7 flat types
   const flatTypeOptions = [
@@ -146,6 +152,29 @@ const Search = () => {
     }
   });
 
+  const displayTownOptions = () => {
+    return townOptions.map((townItem, index) => {
+      return (
+        <Card
+          style={{ width: "19rem", margin: "0.5em", paddingTop: "0.5em" }}
+          key={index}
+        >
+          <Card.Img
+            variant="top"
+            src="https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/2898244_-_16_10_2005.jpg?VersionId=vQMarW6KYsXmISGCYsVZyqqzjDpq.CDM"
+            onClick={handleTownClick}
+            id={townItem}
+          />
+          <Card.Body>
+            <Card.Title className="centered">
+              {townItem.replaceAll("_", " ")}
+            </Card.Title>
+          </Card.Body>
+        </Card>
+      );
+    });
+  };
+
   const displayFlatModelOptions = () => {
     switch (someCtx.flatType) {
       case "1 ROOM":
@@ -209,14 +238,44 @@ const Search = () => {
 
   return (
     <div>
-      <h1>Select Town</h1>
-      {townOptions.map((townItem, index) => {
-        return (
-          <button onClick={handleTownClick} id={townItem} key={index}>
-            {townItem.replaceAll("_", " ")}
-          </button>
-        );
-      })}
+      <div className="container">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h1 className="centered">Select Town</h1>
+            </div>
+          </div>
+
+          <div className="row">{displayTownOptions()}</div>
+        </div>
+      </div>
+
+      {/* ang mo kio image: https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/2898244_-_16_10_2005.jpg?VersionId=vQMarW6KYsXmISGCYsVZyqqzjDpq.CDM */}
+      {/* bedok image: */}
+      {/* bishan image: */}
+      {/* bukit batok image: */}
+      {/* bukit merah image: */}
+      {/* bukit panjang image: */}
+      {/* bukit timah image: */}
+      {/* central area image: */}
+      {/* choa chu kang image: */}
+      {/* clementi image: */}
+      {/* geylang image: */}
+      {/* hougang image: */}
+      {/* jurong east image: */}
+      {/* jurong west image: */}
+      {/* kallang whampoa image: */}
+      {/* marine parade image: */}
+      {/* pasir ris image: */}
+      {/* punggol image: */}
+      {/* queenstown image: */}
+      {/* sembawang image: */}
+      {/* sengkang image: */}
+      {/* serangoon image: */}
+      {/* tampines image: */}
+      {/* toa payoh image: https://www.roots.gov.sg/-/media/Roots/Images/landmarks/toa-payoh-trail/The-Dragon-Playground-1979.ashx */}
+      {/* woodlands image: */}
+      {/* yishun image: */}
 
       <h1>Select Flat Type</h1>
       {flatTypeOptions.map((flatTypeItem, index) => {
