@@ -194,6 +194,7 @@ const Search = () => {
             src={displayTownOptionsImage(index)}
             onClick={handleTownClick}
             id={townItem}
+            style={{ width: "278px", height: "185px" }}
           />
           <Card.Body>
             <Card.Title className="centered">
