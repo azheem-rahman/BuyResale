@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
 import Results from "./Results";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const Search = () => {
   const someCtx = useContext(SomeContext);
@@ -279,16 +280,32 @@ const Search = () => {
 
           <div className="row">{displayTownOptions()}</div>
         </div>
-      </div>
 
-      <h1>Select Flat Type</h1>
-      {flatTypeOptions.map((flatTypeItem, index) => {
-        return (
-          <button onClick={handleFlatTypeClick} id={flatTypeItem} key={index}>
-            {flatTypeItem.replaceAll("_", " ")}
-          </button>
-        );
-      })}
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h1 className="centered">Select Flat Type</h1>
+            </div>
+          </div>
+          <div className="row ">
+            <div className="col d-flex justify-content-center">
+              {flatTypeOptions.map((flatTypeItem, index) => {
+                return (
+                  <Button
+                    variant="dark"
+                    onClick={handleFlatTypeClick}
+                    id={flatTypeItem}
+                    key={index}
+                    style={{ margin: "0.5em" }}
+                  >
+                    {flatTypeItem.replaceAll("_", " ")}
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h1>Select Flat Model</h1>
       {someCtx.flatType ? <div>{displayFlatModelOptions()}</div> : ""}
