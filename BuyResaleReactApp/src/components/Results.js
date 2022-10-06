@@ -39,25 +39,26 @@ const Results = () => {
       "Storey Range",
       "Flat Type",
       "Flat Model",
-      "Floor Area (sqm)",
+      "Floor Area sqm",
       "Resale Price",
       "Remaining Lease",
     ];
-    return headerArr.map((item, index) => {
-      return (
-        <div className="row" key={index}>
-          <div className="col d-flex justify-content-center">
-            <label className="text-justify-center">
-              <strong>{item}</strong>
-            </label>
-          </div>
-        </div>
-      );
-    });
+    return (
+      <div className="row">
+        {headerArr.map((item, index) => {
+          return (
+            <div className="col d-flex justify-content-center">
+              <label className="text-justify-center">
+                <strong>{item}</strong>
+              </label>
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   const printResults = () => {
-    printHeaders();
     return someCtx.post.map((item, index) => {
       const resultArr = [
         index + 1,
@@ -100,7 +101,8 @@ const Results = () => {
         <br />
 
         <div className="row">
-          {resultFound ? printResults() : ""}
+          {resultFound ? printHeaders() : ""}
+          {printResults()}
           {/* {someCtx.post.map((item, index) => {
             if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
               if (
