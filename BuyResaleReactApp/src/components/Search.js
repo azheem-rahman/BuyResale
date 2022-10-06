@@ -207,62 +207,118 @@ const Search = () => {
     });
   };
 
+  // {flatTypeOptions.map((flatTypeItem, index) => {
+  //   return (
+  //     <Button
+  //       variant="dark"
+  //       onClick={handleFlatTypeClick}
+  //       id={flatTypeItem}
+  //       key={index}
+  //       style={{ margin: "0.5em" }}
+  //     >
+  //       {flatTypeItem.replaceAll("_", " ")}
+  //     </Button>
+  //   );
+  // })}
+
   const displayFlatModelOptions = () => {
     switch (someCtx.flatType) {
       case "1 ROOM":
         return flatModelOptionsOneRoom.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "2 ROOM":
         return flatModelOptionsTwoRoom.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "3 ROOM":
         return flatModelOptionsThreeRoom.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "4 ROOM":
         return flatModelOptionsFourRoom.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "5 ROOM":
         return flatModelOptionsFiveRoom.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "EXECUTIVE":
         return flatModelOptionsExecutive.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
       case "MULTI-GENERATION":
         return flatModelOptionsMultiGeneration.map((item, index) => {
           return (
-            <button onClick={handleFlatModelClick} id={item} key={index}>
+            <Button
+              variant="dark"
+              onClick={handleFlatModelClick}
+              id={item}
+              key={index}
+              style={{ margin: "0.5em" }}
+            >
               {item.replaceAll("_", " ")}
-            </button>
+            </Button>
           );
         });
     }
@@ -287,7 +343,7 @@ const Search = () => {
               <h1 className="centered">Select Flat Type</h1>
             </div>
           </div>
-          <div className="row ">
+          <div className="row">
             <div className="col d-flex justify-content-center">
               {flatTypeOptions.map((flatTypeItem, index) => {
                 return (
@@ -307,8 +363,18 @@ const Search = () => {
         </div>
       </div>
 
-      <h1>Select Flat Model</h1>
-      {someCtx.flatType ? <div>{displayFlatModelOptions()}</div> : ""}
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1 className="centered">Select Flat Model</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col d-flex justify-content-center">
+            {someCtx.flatType ? <div>{displayFlatModelOptions()}</div> : ""}
+          </div>
+        </div>
+      </div>
 
       <Results />
     </div>
