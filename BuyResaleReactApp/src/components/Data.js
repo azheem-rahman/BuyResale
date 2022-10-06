@@ -32,6 +32,9 @@ const Data = (props) => {
         })
       );
 
+      const unsortedMatchedResults = [];
+
+      // push data that matches user's search criterias into unsortedMatchedResults array
       data.result.records.map((item) => {
         if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
           if (
@@ -41,23 +44,43 @@ const Data = (props) => {
               JSON.stringify(someCtx.flatModel) ===
               JSON.stringify(item.flat_model)
             ) {
-              return someCtx.setPost((prevState) => [
-                ...prevState,
-                {
-                  town: item.town,
-                  street_name: item.street_name,
-                  block: item.block,
-                  storey_range: item.storey_range,
-                  flat_type: item.flat_type,
-                  flat_model: item.flat_model,
-                  floor_area_sqm: item.floor_area_sqm,
-                  resale_price: item.resale_price,
-                  remaining_lease: item.remaining_lease,
-                },
-              ]);
+              return unsortedMatchedResults.push({
+                town: item.town,
+                street_name: item.street_name,
+                block: item.block,
+                storey_range: item.storey_range,
+                flat_type: item.flat_type,
+                flat_model: item.flat_model,
+                floor_area_sqm: item.floor_area_sqm,
+                resale_price: item.resale_price,
+                remaining_lease: item.remaining_lease,
+              });
             }
           }
         }
+      });
+
+      // sort unsortedMatchedResults array elements according to block number and then assign the sorted elements into sortBlock array
+      const sortBlock = [...unsortedMatchedResults].sort(
+        (a, b) => a.block - b.block
+      );
+
+      // push sortBlock array into post state
+      sortBlock.map((item) => {
+        return someCtx.setPost((prevState) => [
+          ...prevState,
+          {
+            town: item.town,
+            street_name: item.street_name,
+            block: item.block,
+            storey_range: item.storey_range,
+            flat_type: item.flat_type,
+            flat_model: item.flat_model,
+            floor_area_sqm: item.floor_area_sqm,
+            resale_price: item.resale_price,
+            remaining_lease: item.remaining_lease,
+          },
+        ]);
       });
     } catch (err) {
       setError(err.message);
