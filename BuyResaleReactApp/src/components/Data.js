@@ -6,8 +6,6 @@ import LoadingSpinner from "./LoadingSpinner";
 const Data = (props) => {
   const someCtx = useContext(SomeContext);
 
-  const [selection, setSelection] = useState("tampines");
-
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -60,13 +58,13 @@ const Data = (props) => {
         }
       });
 
-      // sort unsortedMatchedResults array elements according to block number and then assign the sorted elements into sortBlock array
-      const sortBlock = [...unsortedMatchedResults].sort(
+      // sort unsortedMatchedResults array elements according to block number and then assign the sorted elements into sortedBlock array
+      const sortedBlock = [...unsortedMatchedResults].sort(
         (a, b) => a.block - b.block
       );
 
-      // push sortBlock array into post state
-      sortBlock.map((item) => {
+      // push sortedBlock array into post state
+      sortedBlock.map((item) => {
         return someCtx.setPost((prevState) => [
           ...prevState,
           {
