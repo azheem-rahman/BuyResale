@@ -207,20 +207,6 @@ const Search = () => {
     });
   };
 
-  // {flatTypeOptions.map((flatTypeItem, index) => {
-  //   return (
-  //     <Button
-  //       variant="dark"
-  //       onClick={handleFlatTypeClick}
-  //       id={flatTypeItem}
-  //       key={index}
-  //       style={{ margin: "0.5em" }}
-  //     >
-  //       {flatTypeItem.replaceAll("_", " ")}
-  //     </Button>
-  //   );
-  // })}
-
   const displayFlatModelOptions = () => {
     switch (someCtx.flatType) {
       case "1 ROOM":
@@ -376,7 +362,8 @@ const Search = () => {
         </div>
       </div>
 
-      <Results />
+      {someCtx.searchCriteria ? <Results /> : ""}
+      {/* <Results /> */}
     </div>
   );
 };
