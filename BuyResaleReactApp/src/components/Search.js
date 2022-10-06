@@ -3,8 +3,6 @@ import React, { useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
 import Results from "./Results";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 const Search = () => {
   const someCtx = useContext(SomeContext);
@@ -16,35 +14,63 @@ const Search = () => {
   // array of all towns in SG, total 26 towns (tengah excluded)
   // towns arranged in regions: North > North-East > East > West > Central
   const townOptions = [
-    "Sembawang",
-    "Woodlands",
-    "Yishun",
     "Ang_Mo_Kio",
-    "Hougang",
-    "Punggol",
-    "Sengkang",
-    "Serangoon",
     "Bedok",
-    "Pasir_Ris",
-    "Tampines",
-    "Bukit_Batok",
-    "Bukit_Panjang",
-    "Choa_Chu_Kang",
-    "Clementi",
-    "Jurong_East",
-    "Jurong_West",
     "Bishan",
+    "Bukit_Batok",
     "Bukit_Merah",
+    "Bukit_Panjang",
     "Bukit_Timah",
     "Central_Area",
+    "Choa_Chu_Kang",
+    "Clementi",
     "Geylang",
+    "Hougang",
+    "Jurong_East",
+    "Jurong_West",
     "Kallang_Whampoa",
     "Marine_Parade",
+    "Pasir_Ris",
+    "Punggol",
     "Queenstown",
+    "Sembawang",
+    "Sengkang",
+    "Serangoon",
+    "Tampines",
     "Toa_Payoh",
+    "Woodlands",
+    "Yishun",
   ];
 
-  const townOptionsImages = [];
+  // array of images for each town options, total 26 images. Follows same order as townOptions array.
+  const townOptionsImages = [
+    "https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/2898244_-_16_10_2005.jpg?VersionId=vQMarW6KYsXmISGCYsVZyqqzjDpq.CDM",
+    "https://thesmartlocal.com/images/easyblog_articles/4744/image00.jpg",
+    "https://www.99.co/singapore/insider/wp-content/uploads/2018/06/bishan-ang-mo-kio-park.jpg",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/our-towns-bukit-batok-2.ashx",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bukit_Merah_in_Central_Region%2C_Singapore.svg/500px-Bukit_Merah_in_Central_Region%2C_Singapore.svg.png",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-bukit-panjang-2.ashx",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-bukit-timah-1.ashx",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-central-1.ashx",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b3/Choa_Chu_Kang_MRT_concourse.jpg",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-clementi-3.ashx",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-geylang-1.ashx",
+    "https://sgmagazine.com/sites/default/files/styles/og_fb/public/block_316_with_its_iconic_rainbow_mural_painted_on_its_facade_at_hougang_avenue_7_2020_courtesy_of_national_heritage_board.jpg?itok=8jm7jl0V",
+    "https://thesmartlocal.com/reviews/media/reviews/photos/original/f0/b9/9f/jurong-east-mall-jem-17-1373263277.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/77/Chinese_Gardens_%288058600224%29.jpg",
+    "https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/6682170_-_20_07_2007.jpg?VersionId=dIpnrrHWvgrfH4IR9yFaUP9QZPuLaiFZ",
+    "https://api.stateofbuildings.sg/uploads/50b0d780-3879-4d1c-ae77-35e84776be6b.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/34/Pasir_Ris_HDB_8.JPG",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/our-towns-punggol-3.ashx",
+    "https://landtransportguru.net/web/wp-content/uploads/2016/07/ewl_ew19_mar16-8.jpg",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-sembawang-1.ashx",
+    "https://media.timeout.com/images/105671367/image.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/73/Nex_4.jpg",
+    "https://media.timeout.com/images/105692864/750/562/image.jpg",
+    "https://www.roots.gov.sg/-/media/Roots/Images/landmarks/toa-payoh-trail/The-Dragon-Playground-1979.ashx",
+    "https://www.streetdirectory.com/stock_images/travel/simg_show/11048448300090/134024/woodlands_regional_library/?w=750",
+    "https://www.hdb.gov.sg/cs/infoweb/-/media/HDBContent/Images/CCG/our-towns-yishun-3.ashx",
+  ];
 
   // array of all flat types in SG, total 7 flat types
   const flatTypeOptions = [
@@ -121,6 +147,10 @@ const Search = () => {
   //=============== Functions ===============//
   //=========================================//
 
+  const displayTownOptionsImage = (index) => {
+    return townOptionsImages[index];
+  };
+
   const handleTownClick = (event) => {
     event.preventDefault();
     console.log(event.target.id);
@@ -161,7 +191,7 @@ const Search = () => {
         >
           <Card.Img
             variant="top"
-            src="https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/2898244_-_16_10_2005.jpg?VersionId=vQMarW6KYsXmISGCYsVZyqqzjDpq.CDM"
+            src={displayTownOptionsImage(index)}
             onClick={handleTownClick}
             id={townItem}
           />
@@ -249,33 +279,6 @@ const Search = () => {
           <div className="row">{displayTownOptions()}</div>
         </div>
       </div>
-
-      {/* ang mo kio image: https://static1.straitstimes.com.sg/s3fs-public/articles/2017/03/02/2898244_-_16_10_2005.jpg?VersionId=vQMarW6KYsXmISGCYsVZyqqzjDpq.CDM */}
-      {/* bedok image: */}
-      {/* bishan image: */}
-      {/* bukit batok image: */}
-      {/* bukit merah image: */}
-      {/* bukit panjang image: */}
-      {/* bukit timah image: */}
-      {/* central area image: */}
-      {/* choa chu kang image: */}
-      {/* clementi image: */}
-      {/* geylang image: */}
-      {/* hougang image: */}
-      {/* jurong east image: */}
-      {/* jurong west image: */}
-      {/* kallang whampoa image: */}
-      {/* marine parade image: */}
-      {/* pasir ris image: */}
-      {/* punggol image: */}
-      {/* queenstown image: */}
-      {/* sembawang image: */}
-      {/* sengkang image: */}
-      {/* serangoon image: */}
-      {/* tampines image: */}
-      {/* toa payoh image: https://www.roots.gov.sg/-/media/Roots/Images/landmarks/toa-payoh-trail/The-Dragon-Playground-1979.ashx */}
-      {/* woodlands image: */}
-      {/* yishun image: */}
 
       <h1>Select Flat Type</h1>
       {flatTypeOptions.map((flatTypeItem, index) => {
