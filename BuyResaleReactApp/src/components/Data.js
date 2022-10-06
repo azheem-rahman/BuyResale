@@ -1,6 +1,7 @@
 // Data component to fetch API
 import React, { useState, useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Data = () => {
   const someCtx = useContext(SomeContext);
@@ -89,7 +90,15 @@ const Data = () => {
       <div>{isLoading ? "ERROR!" : JSON.stringify(someCtx.post)}</div> */}
 
       {/* to display loading of fetching data from HDB  */}
-      <div>{isLoading ? "Loading..." : "Fetch data completed"}</div>
+      <div>
+        {isLoading ? (
+          <div className="centered">
+            <LoadingSpinner />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

@@ -9,91 +9,105 @@ const Results = () => {
 
   return (
     <div>
-      <h1>Results for {someCtx.searchCriteria}</h1>
-      {/* display using test data array */}
-      {/* {testData.result.records.map((listItem, index) => {
-        return someCtx.town === listItem.town ? (
-          <ul key={index}>
-            <li>{listItem.street_name}</li>
-            <li>{listItem.block}</li>
-            <li>{listItem.storey_range}</li>
-            <li>{listItem.flat_type}</li>
-            <li>{listItem.flat_model}</li>
-            <li>{listItem.floor_area_sqm}</li>
-            <li>{listItem.resale_price}</li>
-            <li>{listItem.remaining_lease}</li>
-          </ul>
-        ) : (
-          ""
-        );
-      })} */}
-
-      {/* to test what data is fetched
-      <div>{JSON.stringify(someCtx.post)}</div> */}
-      <Data />
-      <br />
-
-      {/* to print ALL data retrieved from HDB API call*/}
-      {/* <div>
-        {someCtx.post.map((item, index) => {
-          return (
-            <ul key={index}>
-              <li>{item.street_name}</li>
-              <li>{item.block}</li>
-              <li>{item.storey_range}</li>
-              <li>{item.flat_type}</li>
-              <li>{item.flat_model}</li>
-              <li>{item.floor_area_sqm}</li>
-              <li>{item.resale_price}</li>
-              <li>{item.remaining_lease}</li>
-            </ul>
-          );
-        })}
-      </div> */}
-      <table>
-        <thead>
-          <tr>
-            <th>Street Name</th>
-            <th>Block</th>
-            <th>Storey Range</th>
-            <th>Flat Type</th>
-            <th>Flat Model</th>
-            <th>Floor Area sqm</th>
-            <th>Resale Price</th>
-            <th>Remaining Lease</th>
-          </tr>
-        </thead>
-
-        {/* to print user's selected data */}
-        <tbody>
-          {someCtx.post.map((item, index) => {
-            if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
-              if (
-                JSON.stringify(someCtx.flatType) ===
-                JSON.stringify(item.flat_type)
-              ) {
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1 className="centered">Results for {someCtx.searchCriteria}</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <label>
+              <strong>Street Name</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Block</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Storey Range</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Flat Type</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Flat Model</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Floor Area sqm</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Resale Price</strong>
+            </label>
+          </div>
+          <div className="col">
+            <label>
+              <strong>Remaining Lease</strong>
+            </label>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="col">
+            {someCtx.post.map((item, index) => {
+              if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
                 if (
-                  JSON.stringify(someCtx.flatModel) ===
-                  JSON.stringify(item.flat_model)
+                  JSON.stringify(someCtx.flatType) ===
+                  JSON.stringify(item.flat_type)
                 ) {
-                  return (
-                    <tr key={index}>
-                      <td>{item.street_name}</td>
-                      <td>{item.block}</td>
-                      <td>{item.storey_range}</td>
-                      <td>{item.flat_type}</td>
-                      <td>{item.flat_model}</td>
-                      <td>{item.floor_area_sqm}</td>
-                      <td>{item.resale_price}</td>
-                      <td>{item.remaining_lease}</td>
-                    </tr>
-                  );
+                  if (
+                    JSON.stringify(someCtx.flatModel) ===
+                    JSON.stringify(item.flat_model)
+                  ) {
+                    return (
+                      <div className="row" key={index}>
+                        <div className="col">
+                          <label>{item.street_name}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.block}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.storey_range}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.flat_type}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.flat_model}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.floor_area_sqm}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.resale_price}</label>
+                        </div>
+                        <div className="col">
+                          <label>{item.remaining_lease}</label>
+                        </div>
+                      </div>
+                    );
+                  }
                 }
               }
-            }
-          })}
-        </tbody>
-      </table>
+            })}
+          </div>
+        </div>
+      </div>
+
+      <Data />
+      <br />
     </div>
   );
 };
