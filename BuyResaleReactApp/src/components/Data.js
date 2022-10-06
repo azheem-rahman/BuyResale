@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import SomeContext from "../context/some-context";
 import LoadingSpinner from "./LoadingSpinner";
 
-const Data = () => {
+const Data = (props) => {
   const someCtx = useContext(SomeContext);
 
   const [selection, setSelection] = useState("tampines");
@@ -33,20 +33,31 @@ const Data = () => {
       );
 
       data.result.records.map((item) => {
-        return someCtx.setPost((prevState) => [
-          ...prevState,
-          {
-            town: item.town,
-            street_name: item.street_name,
-            block: item.block,
-            storey_range: item.storey_range,
-            flat_type: item.flat_type,
-            flat_model: item.flat_model,
-            floor_area_sqm: item.floor_area_sqm,
-            resale_price: item.resale_price,
-            remaining_lease: item.remaining_lease,
-          },
-        ]);
+        if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
+          if (
+            JSON.stringify(someCtx.flatType) === JSON.stringify(item.flat_type)
+          ) {
+            if (
+              JSON.stringify(someCtx.flatModel) ===
+              JSON.stringify(item.flat_model)
+            ) {
+              return someCtx.setPost((prevState) => [
+                ...prevState,
+                {
+                  town: item.town,
+                  street_name: item.street_name,
+                  block: item.block,
+                  storey_range: item.storey_range,
+                  flat_type: item.flat_type,
+                  flat_model: item.flat_model,
+                  floor_area_sqm: item.floor_area_sqm,
+                  resale_price: item.resale_price,
+                  remaining_lease: item.remaining_lease,
+                },
+              ]);
+            }
+          }
+        }
       });
     } catch (err) {
       setError(err.message);
@@ -55,40 +66,16 @@ const Data = () => {
     setIsLoading(false);
   };
 
-  // pull ALL data from HDB
-  // useEffect(() => {
-  //   for (let i = 1; i <= fetchCount; i++) {
-  //     if (i === 1) {
-  //       const initialUrl =
-  //         "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3";
-  //       fetchPost(initialUrl);
-  //     } else {
-  //       const url = "https://data.gov.sg/" + data.result._links.next;
-  //       fetchPost(url);
-  //     }
-  //   }
-  // }, []);
-
-  // pull data limited to 4000 entries from HDB
-  // useEffect(() => {
-  //   const url =
-  //     "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=999999";
-  //   fetchPost(url);
-  // }, []);
-
-  // pull data after HDB related to town selected, limited to 5000 entries
+  // pull data after HDB related to town selected, limited to 12,000 entries since most entry is 11,000+ for Sengkang
   useEffect(() => {
     const url =
-      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=3000&q=" +
+      "https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=12000&q=" +
       someCtx.town;
     fetchPost(url);
-  }, [someCtx.town]);
+  }, [someCtx.searchCriteria]);
 
   return (
     <div>
-      {/* to test if data fetch works correctly
-      <div>{isLoading ? "ERROR!" : JSON.stringify(someCtx.post)}</div> */}
-
       {/* to display loading of fetching data from HDB  */}
       <div>
         {isLoading ? (
@@ -96,7 +83,7 @@ const Data = () => {
             <LoadingSpinner />
           </div>
         ) : (
-          ""
+          props.checkResultFound
         )}
       </div>
     </div>
