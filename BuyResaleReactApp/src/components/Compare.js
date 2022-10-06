@@ -5,6 +5,7 @@ const Compare = () => {
     <div>
       <br />
       <h1>Compare</h1>
+      <p>Under construction...</p>
     </div>
   );
 };
