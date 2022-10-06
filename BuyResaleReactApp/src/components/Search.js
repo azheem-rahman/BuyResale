@@ -363,7 +363,6 @@ const Search = () => {
       </div>
 
       {someCtx.searchCriteria ? <Results /> : ""}
-      {/* <Results /> */}
     </div>
   );
 };
