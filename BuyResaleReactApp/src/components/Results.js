@@ -85,89 +85,42 @@ const Results = () => {
     });
   };
 
+  const searchAgain = () => {
+    someCtx.setTown("");
+    someCtx.setFlatType("");
+    someCtx.setFlatModel("");
+    someCtx.setSearchCriteria(null);
+    someCtx.setPost([]);
+  };
+
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1 className="centered">
-              Results for {someCtx.town}, {someCtx.flatType},{" "}
-              {someCtx.flatModel}
-            </h1>
-          </div>
-        </div>
-
-        <Data checkResultFound={checkResultFound()} />
-        <br />
-
-        <div className="row">
-          {resultFound ? printHeaders() : ""}
-          {printResults()}
-          {/* {someCtx.post.map((item, index) => {
-            if (JSON.stringify(someCtx.town) === JSON.stringify(item.town)) {
-              if (
-                JSON.stringify(someCtx.flatType) ===
-                JSON.stringify(item.flat_type)
-              ) {
-                if (
-                  JSON.stringify(someCtx.flatModel) ===
-                  JSON.stringify(item.flat_model)
-                ) {
-                  return (
-                    <div className="row" key={index}>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {index + 1}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.street_name}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.block}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.storey_range}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.flat_type}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.flat_model}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.floor_area_sqm}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label className="text-justify-center">
-                          {item.resale_price}
-                        </label>
-                      </div>
-                      <div className="col d-flex justify-content-center">
-                        <label>{item.remaining_lease}</label>
-                      </div>
-                    </div>
-                  );
-                }
-              }
-            }
-          })} */}
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <h1 className="centered">
+            Results for {someCtx.town}, {someCtx.flatType}, {someCtx.flatModel}
+          </h1>
         </div>
       </div>
 
+      <Data checkResultFound={checkResultFound()} />
       <br />
+
+      <div className="row">
+        {resultFound ? printHeaders() : ""}
+        {printResults()}
+      </div>
+
+      <div className="row">
+        <div className="col d-flex justify-content-center">
+          <Button variant="success">Show More</Button>
+        </div>
+        <div className="col d-flex justify-content-center">
+          <Button variant="danger" onClick={searchAgain}>
+            Search Again
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
