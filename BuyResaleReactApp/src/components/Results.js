@@ -112,9 +112,9 @@ const Results = () => {
       </div>
 
       <div className="row">
-        <div className="col d-flex justify-content-center">
+        {/* <div className="col d-flex justify-content-center">
           <Button variant="success">Show More</Button>
-        </div>
+        </div> */}
         <div className="col d-flex justify-content-center">
           <Button variant="danger" onClick={searchAgain}>
             Search Again
